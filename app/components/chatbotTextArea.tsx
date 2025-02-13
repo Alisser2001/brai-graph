@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC } from "react";
 
 interface Props {
     handleSubmit: () => void,
@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const ChatbotTextArea: FC<Props> = ({ handleSubmit, input, handleInputChange }) => {
-    const [message, setMessage] = useState("");
     return (
         <form
             className="w-[93%] flex flex-row justify-between items-center h-[50px] px-3 py-2 rounded-full overflow-hidden border border-solid border-[rgba(0,0,0,0.16)]"

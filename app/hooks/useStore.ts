@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { State, Actions } from '../types/store';
-import { GraphNode, GraphEdge } from '../types/graph';
 import dagre from 'dagrejs';
 
 const position = { x: 0, y: 0 };

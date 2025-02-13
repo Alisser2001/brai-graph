@@ -12,7 +12,7 @@ export const Chatbot: FC = () => {
     return (
         <>
             {isOpen ?
-                <section className="flex flex-col justify-between items-center absolute right-[20px] bottom-[20px] w-[450px] h-[600px] rounded-lg overflow-hidden border border-solid border-[rgba(0,0,0,0.16)] pb-4">
+                <section className="flex flex-col justify-between items-center absolute z-10 right-[20px] bottom-[20px] w-[450px] h-[600px] rounded-lg overflow-hidden border border-solid border-[rgba(0,0,0,0.16)] pb-4 bg-white">
                     <ChatbotHead isOpen={isOpen} setIsOpen={setIsOpen} />
                     <ScrollAreaCont messages={messages} />
                     <ChatbotTextArea handleSubmit={handleSubmit} input={input} handleInputChange={handleInputChange} />

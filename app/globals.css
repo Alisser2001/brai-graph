@@ -10,3 +10,8 @@ body {
   overflow: hidden;
 }
 
+@layer base {
+  :root {
+    --radius: 12px;
+  }
+}

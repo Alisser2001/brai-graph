@@ -9,7 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^1.1.10",
+    "@ai-sdk/react": "^1.1.13",
+    "@radix-ui/react-scroll-area": "^1.2.3",
+    "@radix-ui/react-select": "^2.1.6",
     "@xyflow/react": "^12.4.3",
+    "ai": "^4.1.36",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.475.0",

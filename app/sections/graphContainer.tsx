@@ -11,8 +11,6 @@ type NodePosition = {
 
 type NodeData = {
     label: string;
-    color: string;
-    value: number;
 };
 
 type GraphNode = {
@@ -25,6 +23,8 @@ type GraphEdge = {
     id: string;
     source: string;
     target: string;
+    type: string;
+    animated: boolean
 };
 
 
@@ -33,7 +33,6 @@ const edgeType = 'smoothstep';
 const initialNodes = [
     {
         id: '1',
-        type: 'input',
         data: { label: 'input' },
         position,
     },
@@ -79,11 +78,14 @@ const initialNodes = [
     },
     {
         id: '6',
-        type: 'output',
         data: { label: 'output' },
         position,
     },
-    { id: '7', type: 'output', data: { label: 'output' }, position },
+    {
+        id: '7',
+        data: { label: 'output' },
+        position
+    },
 ];
 const initialEdges = [
     { id: 'e12', source: '1', target: '2', type: edgeType, animated: true },
@@ -128,7 +130,7 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
 
 export const GraphContainer: FC = () => {
     return (
-        <ReactFlow nodes={layoutedNodes} edges={initialEdges} connectionLineType={ConnectionLineType.SmoothStep} fitView className='bg-[#F7F9FB]'>
+        <ReactFlow nodes={layoutedNodes} edges={layoutedEdges} connectionLineType={ConnectionLineType.SmoothStep} fitView className='bg-[#F7F9FB]'>
             <Background variant={BackgroundVariant.Dots} />
         </ReactFlow>
     )

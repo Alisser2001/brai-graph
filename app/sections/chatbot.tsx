@@ -22,6 +22,7 @@ export const Chatbot: FC = () => {
                 edges.length && setEdges(edges);
                 toast.success("Grafo creado con el JSON enviado.")
             } catch (error) {
+                console.log(error);
                 toast.error("El último mensaje no es un JSON válido.");
             }
         }

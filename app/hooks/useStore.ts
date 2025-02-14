@@ -3,8 +3,6 @@ import { State, Actions } from '../types/store';
 import dagre from 'dagrejs';
 import { GraphNode, GraphEdge } from '../types/graph';
 
-const position = { x: 0, y: 0 };
-const edgeType = 'smoothstep';
 const nodeWidth = 172;
 const nodeHeight = 36;
 export const useStore = create<State & Actions>((set, get) => ({
@@ -42,6 +40,7 @@ export const useStore = create<State & Actions>((set, get) => ({
                 nodes: nodes,
             }));
         } catch (err) {
+            console.log(err);
             set((state) => ({
                 ...state
             }));
@@ -54,6 +53,7 @@ export const useStore = create<State & Actions>((set, get) => ({
                 edges: edges,
             }));
         } catch (err) {
+            console.log(err);
             set((state) => ({
                 ...state
             }));

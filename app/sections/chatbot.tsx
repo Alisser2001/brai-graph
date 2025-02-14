@@ -18,15 +18,15 @@ export const Chatbot: FC = () => {
             const lastMessage = messages[messages.length - 1].content;
             try {
                 const { nodes, edges } = validateAndConvert(lastMessage);
-                nodes.length && setNodes(nodes);
-                edges.length && setEdges(edges);
+                if (nodes.length > 0) setNodes(nodes);
+                if (edges.length > 0) setEdges(edges);
                 toast.success("Grafo creado con el JSON enviado.")
             } catch (error) {
                 console.log(error);
                 toast.error("El último mensaje no es un JSON válido.");
             }
         }
-    }, [messages]);
+    }, [messages, setEdges, setNodes]);
     return (
         <>
             {isOpen ?

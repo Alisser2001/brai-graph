@@ -1,3 +1,4 @@
+import { GraphInputNode } from "../types/chat";
 import { GraphEdge, GraphNode } from "../types/graph";
 
 export function validateAndConvert(jsonString: string) {
@@ -16,14 +17,14 @@ export function validateAndConvert(jsonString: string) {
     const edges: GraphEdge[] = [];
     const edgeSet = new Set();
     try {
-        inputJson.nodes.forEach((node: any) => {
+        inputJson.nodes.forEach((node: GraphInputNode) => {
             nodes.push({
                 id: node.id,
                 data: { label: node.metadata.name },
                 position: position
             })
         });
-        inputJson.nodes.forEach((node: any) => {
+        inputJson.nodes.forEach((node: GraphInputNode) => {
             node.connections.forEach((targetId: string) => {
                 const edgeKey = node.id < targetId ? `${node.id}-${targetId}` : `${targetId}-${node.id}`;
                 if (!edgeSet.has(edgeKey)) {

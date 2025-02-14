@@ -10,4 +10,6 @@ export interface Actions {
         nodes: GraphNode[];
         edges: GraphEdge[];
     };
+    setNodes: (nodes: GraphNode[]) => void;
+    setEdges: (edges: GraphEdge[]) => void;
 }

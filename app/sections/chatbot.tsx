@@ -17,7 +17,7 @@ export const Chatbot: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         if (threadId) router.push(`?threadId=${threadId}`);
-    }, [threadId]);
+    }, [threadId, router]);
     useEffect(() => {
         if (error) toast.error(error.message)
     }, [error])
@@ -45,7 +45,7 @@ export const Chatbot: FC = () => {
             {isOpen ?
                 <section className="flex flex-col justify-between items-center absolute z-10 right-[20px] bottom-[20px] w-[450px] h-[600px] rounded-lg overflow-hidden border border-solid border-[rgba(0,0,0,0.16)] pb-4 bg-white">
                     <ChatbotHead isOpen={isOpen} setIsOpen={setIsOpen} />
-                    <ScrollAreaCont messages={messages} status={status} />
+                    <ScrollAreaCont messages={messages} />
                     <ChatbotTextArea handleSubmit={submitMessage} status={status} input={input} handleInputChange={handleInputChange} />
                 </section> :
                 <ChatbotIcon isOpen={isOpen} setIsOpen={setIsOpen} />}

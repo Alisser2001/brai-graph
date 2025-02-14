@@ -1,28 +1,29 @@
 'use client';
 import React, { FC } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Message } from '@ai-sdk/react';
+import { ChatBotIcon } from "../icons/chatBotIcon";
+import { ChatUserIcon } from "../icons/chatUserIcon";
 
-interface TextPart {
-    type: 'text';
-    text: string;
-}
-type UIMessage = {
-    role: "user" | "assistant" | "data" | "system",
-    content: string | Array<TextPart>
-};
 interface ScrollAreaProps {
-    messages: UIMessage[];
+    messages: Message[];
 }
 
 export const ScrollAreaCont: FC<ScrollAreaProps> = ({ messages }) => {
     return (
-        <ScrollArea className="h-[480px] w-full">
-            <div className="p-4">
-                {messages.map((msg, idx) => {
-                    return (
-                        <span key={idx}>{msg.role}</span>
-                    )
-                })}
+        <ScrollArea className="h-[480px] w-[450px]">
+            <div className="p-4 w-[450px]">
+                {messages.map((m: Message) => (
+                    <div key={m.id} className={`w-full flex flex-row ${m.role === 'user' ? 'justify-end' : 'justify-start'} my-4 items-center`}>
+                        {m.role !== 'user' && <ChatBotIcon />}
+                        {m.role !== 'data' && (
+                            <span className="bg-[#1bb883] text-white px-4 py-2 rounded-lg max-w-[50%] inline-block break-words whitespace-pre-wrap">
+                                {m.content}
+                            </span>
+                        )}
+                        {m.role === 'user' && <ChatUserIcon />}
+                    </div>
+                ))}
             </div>
         </ScrollArea>
     )

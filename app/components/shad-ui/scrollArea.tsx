@@ -4,12 +4,14 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Message } from '@ai-sdk/react';
 import { ChatBotIcon } from "../icons/chatBotIcon";
 import { ChatUserIcon } from "../icons/chatUserIcon";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ScrollAreaProps {
-    messages: Message[];
+    messages: Message[],
+    status: string
 }
 
-export const ScrollAreaCont: FC<ScrollAreaProps> = ({ messages }) => {
+export const ScrollAreaCont: FC<ScrollAreaProps> = ({ messages, status }) => {
     return (
         <ScrollArea className="h-[480px] w-[450px]">
             <div className="p-4 w-[450px]">

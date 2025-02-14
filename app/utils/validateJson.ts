@@ -1,15 +1,13 @@
 import { GraphInputNode } from "../types/chat";
 import { GraphEdge, GraphNode } from "../types/graph";
 
-export function validateAndConvert(jsonString: string) {
+interface Props {
+    nodes: GraphInputNode[]
+}
+
+export function validateAndConvert(inputJson: Props) {
     const position = { x: 0, y: 0 };
     const edgeType = 'smoothstep';
-    let inputJson;
-    try {
-        inputJson = JSON.parse(jsonString);
-    } catch (error) {
-        throw new Error((error as Error).message);
-    }
     if (!inputJson.nodes || !Array.isArray(inputJson.nodes)) {
         throw new Error("Formato incorrecto: 'nodes' debe ser un array.");
     }

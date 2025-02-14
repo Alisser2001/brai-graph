@@ -4,7 +4,6 @@ import OpenAI from 'openai';
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
 });
-export const maxDuration = 30;
 export async function POST(req: Request) {
   const input: {
     threadId: string | null;
@@ -20,45 +19,12 @@ export async function POST(req: Request) {
     async ({ forwardStream }) => {
       const runStream = openai.beta.threads.runs.stream(threadId, {
         assistant_id:
-          process.env.ASSISTANT_ID ??
+          process.env.OPENAI_ASSISTANT_CLOWN_KEY ??
           (() => {
             throw new Error('ASSISTANT_ID is not set');
           })(),
       });
-      let runResult = await forwardStream(runStream);
-      while (
-        runResult?.status === 'requires_action' &&
-        runResult.required_action?.type === 'submit_tool_outputs'
-      ) {
-        const tool_outputs =
-          runResult.required_action.submit_tool_outputs.tool_calls.map(
-            (toolCall: unknown) => {
-              if (
-                typeof toolCall === "object" &&
-                toolCall !== null &&
-                "function" in toolCall &&
-                typeof toolCall.function === "object" &&
-                toolCall.function !== null &&
-                "name" in toolCall.function &&
-                typeof toolCall.function.name === "string"
-              ) {
-                switch (toolCall.function.name) {
-                  default:
-                    throw new Error(`Unknown tool call function: ${toolCall.function.name}`);
-                }
-              } else {
-                throw new Error("Invalid toolCall structure");
-              }
-            },
-          );
-        runResult = await forwardStream(
-          openai.beta.threads.runs.submitToolOutputsStream(
-            threadId,
-            runResult.id,
-            { tool_outputs },
-          ),
-        );
-      }
+      await forwardStream(runStream); 
     },
   );
 }

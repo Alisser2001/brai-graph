@@ -32,8 +32,8 @@ export async function POST(req: Request) {
       ) {
         const tool_outputs =
           runResult.required_action.submit_tool_outputs.tool_calls.map(
-            // @ts-ignore
             (toolCall: any) => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               switch (toolCall.function.name) {
                 default:
                   throw new Error(

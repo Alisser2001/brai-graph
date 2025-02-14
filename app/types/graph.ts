@@ -4,13 +4,15 @@ type NodePosition = {
 };
 
 type NodeData = {
-    label: string;
+    name: string;
+    job: string;
 };
 
 export type GraphNode = {
     id: string;
     position: NodePosition;
     data: NodeData;
+    type: string;
 };
 
 export type GraphEdge = {

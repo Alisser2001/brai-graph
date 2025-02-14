@@ -20,8 +20,9 @@ export function validateAndConvert(jsonString: string) {
         inputJson.nodes.forEach((node: GraphInputNode) => {
             nodes.push({
                 id: node.id,
-                data: { label: node.metadata.name },
-                position: position
+                data: { name: node.metadata.name, job: node.metadata.job },
+                position: position,
+                type: 'custom'
             })
         });
         inputJson.nodes.forEach((node: GraphInputNode) => {

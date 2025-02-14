@@ -32,13 +32,22 @@ export async function POST(req: Request) {
       ) {
         const tool_outputs =
           runResult.required_action.submit_tool_outputs.tool_calls.map(
-            (toolCall: any) => {
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              switch (toolCall.function.name) {
-                default:
-                  throw new Error(
-                    `Unknown tool call function: ${toolCall.function.name}`,
-                  );
+            (toolCall: unknown) => {
+              if (
+                typeof toolCall === "object" &&
+                toolCall !== null &&
+                "function" in toolCall &&
+                typeof toolCall.function === "object" &&
+                toolCall.function !== null &&
+                "name" in toolCall.function &&
+                typeof toolCall.function.name === "string"
+              ) {
+                switch (toolCall.function.name) {
+                  default:
+                    throw new Error(`Unknown tool call function: ${toolCall.function.name}`);
+                }
+              } else {
+                throw new Error("Invalid toolCall structure");
               }
             },
           );

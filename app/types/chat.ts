@@ -1,4 +1,4 @@
-export type GraphNode = {
+export type GraphInputNode = {
     id: string;
     metadata: {
         name: string;
@@ -7,4 +7,3 @@ export type GraphNode = {
     };
     connections: string[];
 };
-

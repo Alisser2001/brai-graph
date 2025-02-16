@@ -6,7 +6,7 @@ import { ChatBotIcon } from "../icons/chatBotIcon";
 import { ChatUserIcon } from "../icons/chatUserIcon";
 
 interface ScrollAreaProps {
-    messages: Message[];
+    messages: Message[]
 }
 
 export const ScrollAreaCont: FC<ScrollAreaProps> = ({ messages }) => {
@@ -14,7 +14,7 @@ export const ScrollAreaCont: FC<ScrollAreaProps> = ({ messages }) => {
         <ScrollArea className="h-[480px] w-[450px]">
             <div className="p-4 w-[450px]">
                 {messages.map((m: Message) => (
-                    <div key={m.id} className={`w-full flex flex-row ${m.role === 'user' ? 'justify-end' : 'justify-start'} my-4 items-center`}>
+                    <div key={m.id} className={`w-full flex flex-row ${m.role === 'user' ? 'justify-end' : 'justify-start'} my-4 items-start`}>
                         {m.role !== 'user' && <ChatBotIcon />}
                         {m.role !== 'data' && (
                             <span className="bg-[#1bb883] text-white px-4 py-2 rounded-lg max-w-[50%] inline-block break-words whitespace-pre-wrap">

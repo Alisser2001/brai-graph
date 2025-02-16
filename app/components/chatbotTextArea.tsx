@@ -3,7 +3,7 @@ import { ChangeEvent, FC } from "react";
 import { SendIcon } from "./icons/sendIcon";
 
 interface Props {
-    handleSubmit: () => void,
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
     input: string,
     status: string,
     handleInputChange: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void

@@ -11,6 +11,7 @@
   "dependencies": {
     "@ai-sdk/openai": "^1.1.10",
     "@ai-sdk/react": "^1.1.13",
+    "@radix-ui/react-hover-card": "^1.1.6",
     "@radix-ui/react-scroll-area": "^1.2.3",
     "@radix-ui/react-select": "^2.1.6",
     "@xyflow/react": "^12.4.3",

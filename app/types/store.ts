@@ -1,8 +1,11 @@
 import { GraphEdge, GraphNode } from "./graph";
 
+export type Assistant = 'clown' | 'philosopher';
+
 export interface State {
     nodes: GraphNode[],
-    edges: GraphEdge[]
+    edges: GraphEdge[],
+    assistantType: Assistant
 }
 
 export interface Actions {
@@ -12,4 +15,5 @@ export interface Actions {
     };
     setNodes: (nodes: GraphNode[]) => void;
     setEdges: (edges: GraphEdge[]) => void;
+    setAssistantType: (assistant: Assistant) => void;
 }

@@ -6,6 +6,11 @@ type NodePosition = {
 type NodeData = {
     name: string;
     job: string;
+    department: string;
+    email: string;
+    location: string;
+    description: string;
+    hire_date: string;
 };
 
 export type GraphNode = {

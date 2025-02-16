@@ -2,7 +2,7 @@ import dagre from 'dagrejs';
 import { GraphEdge, GraphNode } from '../types/graph';
 
 const nodeWidth = 250;
-const nodeHeight = 100;
+const nodeHeight = 130;
 export function transformGraph(direction: string, nodes: GraphNode[], edges: GraphEdge[]) {
     const dagreGraph = new dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
     dagreGraph.setGraph({ rankdir: direction });
@@ -20,7 +20,7 @@ export function transformGraph(direction: string, nodes: GraphNode[], edges: Gra
             position: {
                 x: nodeWithPosition.x - nodeWidth / 2,
                 y: nodeWithPosition.y - nodeHeight / 2,
-            },
+            }
         };
         return newNode;
     });

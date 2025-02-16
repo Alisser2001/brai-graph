@@ -18,9 +18,17 @@ export function validateAndConvert(inputJson: Props) {
         inputJson.nodes.forEach((node: GraphInputNode) => {
             nodes.push({
                 id: node.id,
-                data: { name: node.metadata.name, job: node.metadata.job },
+                data: {
+                    name: node.metadata.name,
+                    job: node.metadata.job,
+                    location: node.metadata.location,
+                    department: node.metadata.department,
+                    email: node.metadata.email,
+                    description: node.metadata.description,
+                    hire_date: node.metadata.hire_date
+                },
                 position: position,
-                type: 'custom'
+                type: 'custom',
             })
         });
         inputJson.nodes.forEach((node: GraphInputNode) => {

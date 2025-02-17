@@ -14,14 +14,24 @@ import { useLatestAssistantMessage } from "../hooks/useLatestAssistantMessage";
 
 export const Chatbot: FC = () => {
     const { setNodes, setEdges, assistantType } = useStore();
-    const { status, error, messages, input, submitMessage, handleInputChange, threadId } = useAssistant({ api: '/api/assistant', body: { assistant: assistantType } });
+    const { status, error, messages, input, submitMessage, handleInputChange, threadId, setThreadId } = useAssistant({ api: '/api/assistant', body: { assistant: assistantType } });
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     useLatestAssistantMessage(messages);
 
     useEffect(() => {
-        if (threadId) router.push(`?threadId=${threadId}`);
+        if (threadId) {
+            localStorage.setItem("threadId", threadId);
+            router.replace(`?threadId=${threadId}`);
+        }
     }, [threadId, router]);
+
+    useEffect(() => {
+        const savedThreadId = localStorage.getItem("threadId");
+        if (savedThreadId) {
+            setThreadId(savedThreadId);
+        }
+    }, []);
 
     useEffect(() => {
         if (error) console.log(error.message);
@@ -31,7 +41,7 @@ export const Chatbot: FC = () => {
         event.preventDefault();
         const jsonString = extractJsonFromMessage(input);
         if (!jsonString) {
-            submitMessage(event);
+            submitMessage(event, { data: { action: 'loadPreviousMessages' } });
             return;
         }
         handleInputChange({ target: { value: "" } } as React.ChangeEvent<HTMLInputElement>);

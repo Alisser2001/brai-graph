@@ -6,7 +6,6 @@ import { validateAndConvert } from "../utils/validateJson";
 import { Message } from "ai";
 
 export const useLatestAssistantMessage = (messages: Message[]) => {
-    console.log(messages)
     const { setNodes, setEdges } = useStore();
     const lastMessageRef = useRef<string | null>(null);
     useEffect(() => {

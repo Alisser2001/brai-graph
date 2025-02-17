@@ -1,7 +1,7 @@
 'use client';
 import { FC, useState, useEffect } from "react";
 import { useAssistant } from '@ai-sdk/react';
-import { ChatbotIcon } from "../components/chatbotIcon";
+import { ChatbotButton } from "../components/chatbotButton";
 import { ChatbotHead } from "../components/chatbotHead";
 import { ScrollAreaCont } from "../components/shad-ui/scrollArea";
 import { ChatbotTextArea } from "../components/chatbotTextArea";
@@ -10,19 +10,21 @@ import { useStore } from "../hooks/useStore";
 import { toast } from 'sonner';
 import { useRouter } from "next/navigation";
 import { extractJsonFromMessage } from "../utils/extractJsonFromMessage";
+import { useLatestAssistantMessage } from "../hooks/useLatestAssistantMessage";
 
 export const Chatbot: FC = () => {
     const { setNodes, setEdges, assistantType } = useStore();
     const { status, error, messages, input, submitMessage, handleInputChange, threadId } = useAssistant({ api: '/api/assistant', body: { assistant: assistantType } });
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+    useLatestAssistantMessage(messages);
 
     useEffect(() => {
         if (threadId) router.push(`?threadId=${threadId}`);
     }, [threadId, router]);
 
     useEffect(() => {
-        if (error) toast.error(error.message);
+        if (error) console.log(error.message);
     }, [error]);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -56,7 +58,7 @@ export const Chatbot: FC = () => {
                     <ScrollAreaCont messages={messages} />
                     <ChatbotTextArea handleSubmit={(e) => handleSubmit(e)} status={status} input={input} handleInputChange={handleInputChange} />
                 </section> :
-                <ChatbotIcon isOpen={isOpen} setIsOpen={setIsOpen} />}
+                <ChatbotButton isOpen={isOpen} setIsOpen={setIsOpen} />}
         </>
     )
 }

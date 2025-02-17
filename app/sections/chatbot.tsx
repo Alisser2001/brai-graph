@@ -31,7 +31,7 @@ export const Chatbot: FC = () => {
         if (savedThreadId) {
             setThreadId(savedThreadId);
         }
-    }, []);
+    }, [setThreadId]);
 
     useEffect(() => {
         if (error) console.log(error.message);

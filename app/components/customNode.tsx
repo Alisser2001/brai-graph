@@ -8,8 +8,6 @@ import {
 import { createPortal } from "react-dom";
 import { JobIcon } from './icons/jobIcon';
 import { LocationIcon } from './icons/locationIcon';
-import { CalendarIcon } from './icons/calendarIcon';
-import { MailIcon } from './icons/mailIcon';
 import { HoverCardCont } from './hoverCardCont';
 
 interface Props {

@@ -1,0 +1,214 @@
+{
+    "nodes": [
+        {
+            "id": "1",
+            "metadata": {
+                "name": "Carlos Gómez",
+                "job": "CEO",
+                "department": "Dirección",
+                "email": "carlos.gomez@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2015-06-01",
+                "description": "Responsable de la dirección estratégica y operativa de la empresa."
+            },
+            "connections": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "id": "2",
+            "metadata": {
+                "name": "María Rodríguez",
+                "job": "CFO",
+                "department": "Finanzas",
+                "email": "maria.rodriguez@empresa.com",
+                "location": "Sucursal Norte",
+                "hire_date": "2017-09-15",
+                "description": "Encargada de la gestión financiera y planificación económica de la empresa."
+            },
+            "connections": [
+                "1",
+                "4",
+                "5",
+                "9"
+            ]
+        },
+        {
+            "id": "3",
+            "metadata": {
+                "name": "Luis Fernández",
+                "job": "CTO",
+                "department": "Tecnología",
+                "email": "luis.fernandez@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2016-02-20",
+                "description": "Responsable de la innovación tecnológica y desarrollo de sistemas."
+            },
+            "connections": [
+                "1",
+                "6",
+                "7",
+                "10"
+            ]
+        },
+        {
+            "id": "4",
+            "metadata": {
+                "name": "Ana López",
+                "job": "Gerente de Finanzas",
+                "department": "Finanzas",
+                "email": "ana.lopez@empresa.com",
+                "location": "Sucursal Sur",
+                "hire_date": "2018-03-12",
+                "description": "Supervisa las operaciones financieras y contables de la empresa."
+            },
+            "connections": [
+                "2"
+            ]
+        },
+        {
+            "id": "5",
+            "metadata": {
+                "name": "Jorge Ramírez",
+                "job": "Gerente de Contabilidad",
+                "department": "Finanzas",
+                "email": "jorge.ramirez@empresa.com",
+                "location": "Sucursal Norte",
+                "hire_date": "2019-05-25",
+                "description": "Encargado de la gestión contable y reportes financieros."
+            },
+            "connections": [
+                "2"
+            ]
+        },
+        {
+            "id": "6",
+            "metadata": {
+                "name": "Sofía Martínez",
+                "job": "Gerente de Desarrollo",
+                "department": "Tecnología",
+                "email": "sofia.martinez@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2017-07-09",
+                "description": "Lidera el equipo de desarrollo de software y proyectos tecnológicos."
+            },
+            "connections": [
+                "3",
+                "8",
+                "11"
+            ]
+        },
+        {
+            "id": "7",
+            "metadata": {
+                "name": "Daniel Pérez",
+                "job": "Gerente de Infraestructura",
+                "department": "Tecnología",
+                "email": "daniel.perez@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2018-04-18",
+                "description": "Responsable de la infraestructura tecnológica y sistemas de la empresa."
+            },
+            "connections": [
+                "3",
+                "12"
+            ]
+        },
+        {
+            "id": "8",
+            "metadata": {
+                "name": "Elena Torres",
+                "job": "Equipo de Desarrollo",
+                "department": "Tecnología",
+                "email": "elena.torres@empresa.com",
+                "location": "Sucursal Este",
+                "hire_date": "2020-02-01",
+                "description": "Desarrolladora de software y colaboradora en proyectos tecnológicos."
+            },
+            "connections": [
+                "6",
+                "13"
+            ]
+        },
+        {
+            "id": "9",
+            "metadata": {
+                "name": "Fernando Castro",
+                "job": "Auditor",
+                "department": "Finanzas",
+                "email": "fernando.castro@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2016-11-03",
+                "description": "Encargado de la auditoría interna y control de procesos financieros."
+            },
+            "connections": [
+                "2",
+                "14"
+            ]
+        },
+        {
+            "id": "10",
+            "metadata": {
+                "name": "Gabriela Vargas",
+                "job": "Arquitecto de Software",
+                "department": "Tecnología",
+                "email": "gabriela.vargas@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2019-06-21",
+                "description": "Diseña y supervisa la arquitectura de los sistemas de software."
+            },
+            "connections": [
+                "3",
+                "15"
+            ]
+        },
+        {
+            "id": "18",
+            "metadata": {
+                "name": "Martín Ortega",
+                "job": "Especialista en Seguridad",
+                "department": "Seguridad",
+                "email": "martin.ortega@empresa.com",
+                "location": "Oficina Central",
+                "hire_date": "2021-01-15",
+                "description": "Encargado de la seguridad de la información y ciberseguridad."
+            },
+            "connections": [
+                "7",
+                "19"
+            ]
+        },
+        {
+            "id": "19",
+            "metadata": {
+                "name": "Silvia Núñez",
+                "job": "Analista de Riesgos",
+                "department": "Seguridad",
+                "email": "silvia.nunez@empresa.com",
+                "location": "Sucursal Sur",
+                "hire_date": "2022-08-03",
+                "description": "Analiza y gestiona los riesgos relacionados con la seguridad."
+            },
+            "connections": [
+                "18",
+                "20"
+            ]
+        },
+        {
+            "id": "20",
+            "metadata": {
+                "name": "Álvaro Herrera",
+                "job": "Soporte Técnico",
+                "department": "Tecnología",
+                "email": "alvaro.herrera@empresa.com",
+                "location": "Sucursal Norte",
+                "hire_date": "2023-02-14",
+                "description": "Brinda soporte técnico y resuelve incidencias de los usuarios."
+            },
+            "connections": [
+                "19"
+            ]
+        }
+    ]
+}

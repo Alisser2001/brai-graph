@@ -26,7 +26,7 @@ function CustomNode({ data }: Props) {
     return (
         <HoverCard>
             <HoverCardTrigger>
-                <div className='shadow-[0px_0px_5px_0px_rgba(0,0,0,0.3)] rounded-md w-[250px] h-[130px] overflow-hidden'>
+                <div className='shadow-[0px_0px_5px_0px_rgba(0,0,0,0.3)] rounded-md w-[250px] h-[130px] overflow-hidden animate-appear-from-opacity'>
                     <Handle
                         type="target"
                         position={Position.Top}

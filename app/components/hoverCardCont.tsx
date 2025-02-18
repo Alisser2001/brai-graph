@@ -18,7 +18,7 @@ interface Props {
 
 export const HoverCardCont: FC<Props> = ({ data }) => {
     return (
-        <HoverCardContent className='bg-white z-50 w-auto h-auto rounded-md p-0 overflow-hidden shadow-[0px_0px_5px_0px_rgba(0,0,0,0.3)]'>
+        <HoverCardContent className='bg-white z-50 w-auto h-auto rounded-md p-0 overflow-hidden shadow-[0px_0px_5px_0px_rgba(0,0,0,0.3)] animate-expand-from-top'>
             <div className="text-gray-600 flex flex-col justify-start items-center p-3 max-w-[250px]">
                 <section className='flex flex-row justify-start items-center w-full mb-2'>
                     <p className='text-start flex flex-row flex-wrap'>{data.description}</p>
